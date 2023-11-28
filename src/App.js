@@ -1,37 +1,20 @@
-import Counter from './components/Counter';
-import SayHi from './components/SayHi';
-import { useState } from 'react';
-import './App.css';
+import React from 'react'
+import { IoIosFlash } from "react-icons/io";
+import Card from './compenent/Card';
+import data from './assets/data'
 
-function App() {
-  // const [valeurInitial, FunctionPourModifier] = useState(NotreValeurInitial)
-  const [count, setCount] = useState(0);
-
-  // Utiliser la fonction pour récupérer une valeur depuis le composant enfant A NE PAS FAIRE 🚨
-  /*   const yearLessRetirement = function (age) {
-    console.log(age);
-  };
- */
-
+export default function App() {
   return (
-    <div>
-      {/* 
-      <SayHi
-        name={'Michael'}
-        age={40}
-        job={'Developper'}
-        yearLessRetirement={yearLessRetirement}></SayHi>
-      <SayHi name={'John'} age={27} job={'CEO'}></SayHi>
-     */}
+   <div>
+    <h1 className='text-center uppercase text-white mt-4 mb-2 flex items-center justify-center '>characters<IoIosFlash /></h1>
+    <div className='  grid gap-4 grid-cols-3 grid-rows-2'>
 
-      <div className='bg-red-400'>
-        <button onClick={() => setCount(count + 1)}>+</button>
-        <p style={{ fontSize: '30px', color: 'white' }}>{count}</p>
-        <button>-</button>
-      </div>
+      {data.map((item, index)=>
+     <Card key={index} name={item.name } image={item.image} description={item.description}></Card>
+      )}
+   
+    
     </div>
-  );
+    </div>
+  )
 }
-
-export default App;
-
